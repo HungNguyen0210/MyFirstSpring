@@ -7,8 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MySpringProjectApplication {
 
     public static void main(String[] args) {
-        System.out.println("Java Version: " + System.getProperty("java.version"));
-        SpringApplication.run(MySpringProjectApplication.class, args);
+        //SpringApplication.run(MySpringProjectApplication.class, args);
+        var orderService = new OrderService();
+        orderService.setPaymentService(new PayPalPaymentService());
+        orderService.placeOrder();
     }
-
 }
